@@ -8,13 +8,13 @@
 const { application } = require('express');
 const express =require('express');
 const router =express.Router();
-const Alien =require('../models.js/alienSchema.js')
+const Student =require('../models.js/studentSchema.js')
 
 router.get('/',async(req,res)=>{
     try{
         
-      const aliens= await Alien.find()
-      res.json(aliens)
+      const students= await Student.find()
+      res.json(students)
     }catch(err){
         res.send('error',err)
     }
@@ -25,8 +25,8 @@ router.get('/',async(req,res)=>{
 router.get('/:id',async(req,res)=>{
     try{
         
-      const alien= await Alien.findById(req.params.id)
-      res.json(alien)
+      const student= await Student.findById(req.params.id)
+      res.json(student)
     }catch(err){
         res.send('error',err)
     }
@@ -36,13 +36,13 @@ router.get('/:id',async(req,res)=>{
 
 
 router.post('/',async(req,res)=>{
-    const alien=new Alien({
+    const student=new Student({
         name: req.body.name,
         tech:req.body.tech,
         sub:req.body.sub
     })
    try{
-    const a1 =await alien.save()
+    const a1 =await student.save()
     res.json(a1)
    }catch(err){
     res.send('error',err)
