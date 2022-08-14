@@ -8,12 +8,12 @@
 
 const mongoose =require('mongoose');
 const express =require('express');
-const alienRouter=require('./Routers/aliens')
+const studentRouter=require('./Routers/students')
 
 const app=express();
 const port =process.env.PORT ||9000;
 app.use(express.json())   
-app.use('/aliens',alienRouter)
+app.use('/students',studentRouter)
 
 const url ='mongodb://localhost/AlienDBex';
 
